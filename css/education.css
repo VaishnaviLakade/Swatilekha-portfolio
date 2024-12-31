@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+:root {
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --main-color: #7cf03d;
+  --white-color: #fff;
+  --disabled-color: #fff3;
+}
+
+html {
+  font-size: 62.5%;;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--white-color);
+  background-color: var(--second-bg-color);
+}
+
+/* Navigation Bar Styling */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 9%;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  color: var(--white-color);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+nav a {
+  color: var(--white-color);
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--main-color);
+}
+
+#menu-icon {
+  font-size: 2.5rem;
+  display: none;
+  cursor: pointer;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  /* Hide the navbar links by default on small screens */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Display the hamburger icon on small screens */
+  #menu-icon {
+    display: block;
+  }
+
+  /* Show the navigation links when the menu icon is clicked */
+  .nav-links.show {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 2rem;
+  }
+}
+
+/* Education Section Styling with Timeline */
+section {
+  padding: 10rem 9% 2rem;
+  background: var(--bg-color);
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education-section {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.education-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 4px;
+  height: 100%;
+  background-color: var(--main-color);
+}
+
+.education-item {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: var(--second-bg-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  position: relative;
+  width: calc(100% - 4rem);
+}
+
+.education-item::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: -20px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+.education-item h3 {
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.education-item p {
+  margin: 0.5rem 0;
+}
+
+.education-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.education-item ul li {
+  margin: 0.5rem 0;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .education-section {
+    padding-left: 1rem;
+  }
+
+  .education-section::before {
+    left: 10px;
+  }
+
+  .education-item {
+    padding: 1.5rem;
+    width: calc(100% - 2rem);
+  }
+
+  .education-item::before {
+    left: -15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-item h3 {
+    font-size: 1.8rem;
+  }
+
+  .education-item p,
+  .education-item ul li {
+    font-size: 1.6rem;
+  }
+}
